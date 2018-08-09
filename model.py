@@ -197,6 +197,7 @@ class BiRNN(object):
         if ckpt != None:
             self.saver.restore(self.sess, ckpt)
             ind = ckpt.rfind("-")
+            print(ind)
             self.startepo = int(ckpt[ind + 1:])
             print(self.startepo)
         print()
