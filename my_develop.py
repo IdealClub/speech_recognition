@@ -16,7 +16,11 @@ def dict_test():
 	words = sorted(counter)
 	words_size = len(words)
 	word_num_map = dict(zip(words, range(words_size)))
-	print('all words i use :\n',all_word)
+	to_num = lambda word: word_num_map.get(word, 4)
+
+	label_vector = list(map(to_num,['hello','you','hi','you']))
+	print(label_vector)
+	print('\nall words i use :\n',all_word)
 	print('\nafter counter:\n',counter)
 	print('\nafter sort:\n',words)
 	print('\nthe words size: ',words_size)
@@ -44,8 +48,12 @@ def minimum(a,b):
 
 
 def main():
-	minimum(13,15)
-	
+#	empty_mfcc = np.zero(5)
+#	empty = list(empty_mfcc for em)
+#	print(range(139))
+	dict_test()
+#	for i in range(1):
+#		print(i)
 
 if __name__ == '__main__':
 	main()
