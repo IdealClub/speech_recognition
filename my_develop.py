@@ -3,10 +3,11 @@ import scipy.io.wavfile as wav
 from python_speech_features import mfcc
 import matplotlib.pyplot as plt
 
+
 def dict_test():
 	all_word = []
 	label = []
-	# python字典生成方法，没有语音，只有汉字对应了序号
+	# python字典生成方法，没有语音，只生成汉字对应了序号
 	label = ['hello','hello','hello','hi','hi','hi','you', 'you']
 	all_word += [word for word in label]
 	counter = Counter(all_word)
@@ -25,9 +26,10 @@ def readwav(audio_filename, n_input=26):
 	fs, audio = wav.read(audio_filename)
     # 获取mfcc数值
 	orig_inputs = mfcc(audio, samplerate=fs, numcep=26)
-	plt.plot(orig_inputs)
-	plt.show()
-
+#	for i in range(orig_inputs.shape[0]):
+#		plt.plot(orig_inputs[i])
+#		plt.pause(0.01)
+#		plt.close()
 
 def main():
 	readwav('./wav/test.wav')
