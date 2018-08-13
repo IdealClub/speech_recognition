@@ -1,7 +1,9 @@
-from collections import Counter
 import scipy.io.wavfile as wav
-from python_speech_features import mfcc
 import matplotlib.pyplot as plt
+from collections import Counter
+from python_speech_features import mfcc
+import tensorflow as tf
+
 
 
 def dict_test():
@@ -24,15 +26,25 @@ def dict_test():
 def readwav(audio_filename, n_input=26):
 	# 读取音频文件
 	fs, audio = wav.read(audio_filename)
-    # 获取mfcc数值
+    # 提取mfcc数值
 	orig_inputs = mfcc(audio, samplerate=fs, numcep=26)
 #	for i in range(orig_inputs.shape[0]):
 #		plt.plot(orig_inputs[i])
 #		plt.pause(0.01)
 #		plt.close()
 
+def train(loop):
+	section = '\n{0:=^40}\n'
+	print(section.format('开始训练'))
+
+def minimum(a,b):
+	y = tf.minimum(a,b)
+	print(y)
+
+
+
 def main():
-	readwav('./wav/test.wav')
+	minimum(13,15)
 	
 
 if __name__ == '__main__':
